@@ -1,6 +1,6 @@
 // Só para ver a response sem precisar ficar abrindo o swagger UI toda hora.
 
-GET https://winsapi.discloud.app/dev/products/peds
+GET https://winsapi.discloud.app/dev/products
 Accept: application/json
 
 
