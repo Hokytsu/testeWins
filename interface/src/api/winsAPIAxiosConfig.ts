@@ -4,8 +4,8 @@ import {
   ApiErrorResponseInterface,
 } from "../interface/apiInterface";
 
-// Configuração do Axios
-export const winsAPI: AxiosInstance = axios.create({
+// Configuração da consula a API.
+export const winsAPI: AxiosInstance = axios.create({ 
   baseURL: "https://winsapi.discloud.app/dev/products", // Focado somente para esse teste.
   timeout: 7000,
   headers: {
@@ -58,5 +58,5 @@ const httpErrorMessages: Record<number, string> = {
 
 // Obtem a messagem de erro de httpErrorMessages
 function getHttpErrorDescription(status: number) {
-  return httpErrorMessages[status] || "Boa sorte em achar o que foi :)";
+  return httpErrorMessages[status] || "Boa sorte em achar o que foi que deu erro :)";
 }

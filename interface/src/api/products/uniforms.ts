@@ -1,13 +1,9 @@
 import { UniformsInterface } from '../../interface/productsInterface';
-import { winsAPI } from '../winsAPIConfig';
+import { winsAPI } from '../winsAPIAxiosConfig';
 
-export const Uniform = {
-  getJsonData: async () => {
+export const Uniforms = { //Geralmente eu crio um arquivo de exportação um nivel acima centralizando tudo, mas como são só 3 produtos, vou deixar aqui msm o export. 
+  getJsonDataAPI: async () => { //Consulta a API /uniforms
     const response:UniformsInterface = await winsAPI.get('/uniforms');
-    return response.data;
-  },
-  getImagebyName: async (name:string) => {
-    const response = await winsAPI.get(`/uniforms/${name}`); // acabei de perceber que criei um func para retornar a url da img e n to usando ela aqui
     return response.data;
   }
 };

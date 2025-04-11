@@ -1,7 +1,7 @@
-export interface WeaponInterface {
-  data: WeaponType[];
+export interface WeaponsInterface {
+  data: WeaponsType[];
 }
-type WeaponType = {
+export type WeaponsType = {
   name: string;
   price: number;
   images: string[];
@@ -9,16 +9,16 @@ type WeaponType = {
 export interface PedsInterface {
   data: PedsType[];
 }
-type PedsType = {
+export type PedsType = {
   description: string;
   images: string[];
   name: string;
   price: number;
 };
 export interface UniformsInterface {
-  data: uniformType[];
+  data: UniformsType[];
 }
-type uniformType = {
+export type UniformsType = {
   images: string[];
   name: string;
   price: number;
