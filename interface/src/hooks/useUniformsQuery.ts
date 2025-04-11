@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Uniforms } from '../api/products/uniforms';
-import {UniformsType } from '../interface/productsInterface';
+import {UniformsType } from '../interface/Products-interface';
 
 export const useUniformsQuery = () => {
   return useQuery<UniformsType[]>({

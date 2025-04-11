@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Peds } from '../api/products/peds';
-import {PedsType } from '../interface/productsInterface';
+import {PedsType } from '../interface/Products-interface';
 
 export const usePedsQuery = () => {
   return useQuery<PedsType[]>({

@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse, AxiosError } from "axios";
 import {
   ApiErrorInterface,
   ApiErrorResponseInterface,
-} from "../interface/apiInterface";
+} from  "../interface/API-interface.ts";
 
 // Configuração da consula a API.
 export const winsAPI: AxiosInstance = axios.create({ 

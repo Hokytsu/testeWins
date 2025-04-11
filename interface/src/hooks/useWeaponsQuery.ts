@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Weapons } from '../api/products/weapons';
-import {WeaponsType } from '../interface/productsInterface';
+import {WeaponsType } from '../interface/Products-interface';
 
 export const useWeaponsQuery = () => {
   return useQuery<WeaponsType[]>({
