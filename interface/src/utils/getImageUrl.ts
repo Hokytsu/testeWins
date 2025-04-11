@@ -2,7 +2,7 @@ export function getImageUrl( // getImageUrl( 'peds' OU 'uniforms' OU 'weapons', 
   type: "peds" | "uniforms" | "weapons",
   imageName: string
 ):string {
-  const baseUrl = "https://wins.company/assets/TesteFrontEnd";
+  const baseUrl = "https://winsapi.discloud.app/dev/products";
   return `${baseUrl}/${type}/${imageName}.webp`;
 }
   

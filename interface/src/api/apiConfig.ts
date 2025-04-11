@@ -4,10 +4,11 @@ import { ApiErrorInterface, ApiErrorResponseInterface } from '../interface/apiIn
 
 // Configuração do Axios
 export const winsAPI: AxiosInstance = axios.create({
-  baseURL: 'https://wins.company/assets/TesteFrontEnd',
-  timeout: 30000,
+  baseURL: 'https://wins.company/dev/products', // Focado somente para esse teste.
+  timeout: 7000, 
   headers: {
     'Content-Type': 'application/json',
+    'Accept': 'application/json'
   },
 });
 
