@@ -20,6 +20,7 @@ const NavContainer = styled.nav`
   align-items: center;
   width: 35.31vw;
   height: 2.22vh;
+
 `;
 
 // ul
@@ -27,9 +28,9 @@ const MenuUl = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30.31vw;
+  width: 35.31vw;
   height: 2.22vh;
-  gap: 1.04vw;
+  gap: 1.64vw;
 `;
 
 //li

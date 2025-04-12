@@ -5,6 +5,7 @@ export {
   ChamferButtonBorder,
   ChamferButtonBg,
   ChamferButtonContent,
+  Img
 };
 
 /*Explicação: ChamferButton é o holder de tudo, o restante está centrado nele, o 
@@ -17,13 +18,15 @@ export {
    A config do clip-path: polygon{} é uma extração do svg do figma.
   */
 
+
+const Img = styled.img``;
 const ChamferButton = styled.div<TransientButtonsInterface>`
   width: ${({ $width }) => ($width ? $width + "vw" : "auto")};
   height: ${({ $height }) => ($height ? $height + "vh" : "auto")};
   position: relative;
   background-color: transparent;
   cursor: pointer;
-  background-color: aliceblue;
+ 
 `;
 
 const ChamferButtonBorder = styled.div<TransientButtonsInterface>`
@@ -106,4 +109,6 @@ const ChamferButtonContent = styled.div<TransientButtonsInterface>`
     0.24% 35.96%,
     3.89% 18.53%
   );
+
+  
 `;

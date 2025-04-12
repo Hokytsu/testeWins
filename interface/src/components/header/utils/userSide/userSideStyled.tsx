@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { background } from "../../../../assets";
+
 export {
   UserSide,
   ContentButton,
@@ -15,7 +15,7 @@ const UserSide = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid #eeeeee; */
+
   height: 4.44vh;
   width: 17.5vw;
 

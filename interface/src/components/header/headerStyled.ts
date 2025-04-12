@@ -14,12 +14,12 @@ export {
 //Header
 const HeaderContainer = styled.header`
   background: rgba(0, 9, 22, 1);
-  height: 9.63vh;
+  height: 8.63vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
  
 `;
 
@@ -39,7 +39,6 @@ const LogoSection = styled.section`
   align-items: center;
   width: 11.88vw;
   height: 3.7vh;
-  cursor: pointer;
 `;
 const WinsMain = styled.img`
   width: 7.92vw;
