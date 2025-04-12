@@ -15,6 +15,6 @@ export const GlobalStyled = createGlobalStyle`
   html {
     width: 100vw;
     height: auto;
-    
+    font-size: 62.5%; // Para estrátegias de responsividade com rem, poderia tbm clamp() para a responsividade.
   }
 `;
