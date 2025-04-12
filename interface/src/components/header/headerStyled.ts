@@ -8,18 +8,30 @@ export {
   WinsPVP,
   LogoSection,
   LogoLink,
+  Header
 };
 
 //Header
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   background: rgba(0, 9, 22, 1);
   height: 9.63vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  
+ 
+`;
+
+const Header = styled.div`
+  height: 4.44vh;
+  width: 75.00vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap:5.16vw;
 `;
+
 //Logo styles
 const LogoSection = styled.section`
   display: flex;

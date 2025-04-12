@@ -1,46 +1,51 @@
 import { useState } from "react";
 import * as S from "./chamferButtonStyled";
+import { ButtonsInterface } from "../../../../interface/Utils.Interface";
 // Este botão não funciona para locais a onde precisa aparecer o background personalizado
-function ChamferButton({ ...props }: buttonsInterface) {
+function ChamferButton({ ...props }: ButtonsInterface) {
   const [isHoverButton, setIsHoverButton] = useState<boolean>(false);
   const [isClickButton, setIsClickButton] = useState<boolean>(false);
   const {
     children,
     width,
     height,
-    contentWidth,
-    bgWidth,
-    contentHeight,
-    bgHeight,
-    borderColor,
-    backgroundColor,
-    contentColor,
-    hoverColor,
-    clickColor,
+    contentwidth,
+    bgwidth,
+    contentheight,
+    bgheight,
+    bordercolor,
+    backgroundcolor,
+    contentcolor,
+    hovercolor,
+    clickcolor,
+    action
   } = props;
 
   function handleClick() {
-   //Lógica click
+      //Lógica click
+    if (action) {
+      action();
+    }
+  
   }
   return (
     <S.ChamferButton
-      width={width}
-      height={height}
-      
+      $width={width}
+      $height={height}
       onClick={() => handleClick()}
       onMouseEnter={() => setIsHoverButton(true)}
       onMouseLeave={() => setIsHoverButton(false)}
     >
-      <S.ChamferButtonBorder borderColor={isHoverButton ? hoverColor : isClickButton ? clickColor : borderColor} />
+      <S.ChamferButtonBorder $bordercolor={isHoverButton ? hovercolor : isClickButton ? clickcolor : bordercolor} />
       <S.ChamferButtonBg
-        bgHeight={bgHeight}
-        bgWidth={bgWidth}
-        backgroundColor={backgroundColor}
+        $bgheight={bgheight}
+        $bgwidth={bgwidth}
+        $backgroundcolor={backgroundcolor}
       />
       <S.ChamferButtonContent
-        contentHeight={contentHeight}
-        contentWidth={contentWidth}
-        contentColor={isHoverButton ? hoverColor : isClickButton ? clickColor : contentColor}
+        $contentheight={contentheight}
+        $contentwidth={contentwidth}
+        $contentcolor={isHoverButton ? hovercolor : isClickButton ? clickcolor : contentcolor}
       >
         {children}
       </S.ChamferButtonContent>

@@ -6,7 +6,8 @@ import UserSide from "./utils/userSide/UserSide";
 function Header() {
   return (
     <S.HeaderContainer>
-      <S.LogoSection id="header__logo-section">
+     <S.Header>
+     <S.LogoSection id="header__logo-section">
         <S.WinsMain src={Logo} alt="" />
         {/*<S.LogoLink to= {}></S.LogoLink>*/}
         <S.DividerLine />
@@ -15,6 +16,7 @@ function Header() {
       </S.LogoSection>
       <Menu/>
       <UserSide/>
+     </S.Header>
     </S.HeaderContainer>
   );
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TransientButtonsInterface } from "../../../../interface/Utils.Interface";
 export {
   ChamferButton,
   ChamferButtonBorder,
@@ -6,14 +7,26 @@ export {
   ChamferButtonContent,
 };
 
-const ChamferButton = styled.div<Omit<buttonsInterface, "children">>`
-  width: ${({ width }) => (width ? width + "vw" : "auto")};
-  height: 4.44vh;
+/*Explicação: ChamferButton é o holder de tudo, o restante está centrado nele, o 
+  ChamferButtonBg tem que levar a cor do fundo assim fazendo ter esse efeito de fundo
+  transparente
+  
+  Tinha a opção de usar SVG direto ou usar SVG convertido para React-Components, mas fiz pensando
+  em uma solução mais simples e reutilizavel.
+
+   A config do clip-path: polygon{} é uma extração do svg do figma.
+  */
+
+const ChamferButton = styled.div<TransientButtonsInterface>`
+  width: ${({ $width }) => ($width ? $width + "vw" : "auto")};
+  height: ${({ $height }) => ($height ? $height + "vh" : "auto")};
   position: relative;
   background-color: transparent;
+  cursor: pointer;
+  background-color: aliceblue;
 `;
 
-const ChamferButtonBorder = styled.div<Omit<buttonsInterface, "children">>`
+const ChamferButtonBorder = styled.div<TransientButtonsInterface>`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -22,7 +35,7 @@ const ChamferButtonBorder = styled.div<Omit<buttonsInterface, "children">>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${({ borderColor }) => borderColor || "rgb(0, 0, 0)"};
+  background-color: ${({ $bordercolor }) => $bordercolor || "rgb(0, 0, 0)"};
   z-index: 1;
   clip-path: polygon(
     3.89% 18.53%,
@@ -40,15 +53,15 @@ const ChamferButtonBorder = styled.div<Omit<buttonsInterface, "children">>`
   );
 `;
 
-const ChamferButtonBg = styled.div<Omit<buttonsInterface, "children">>`
-  width: ${({ bgWidth }) => (bgWidth ? bgWidth + "vw" : "auto")};
-  height: ${({ bgHeight }) => (bgHeight ? bgHeight + "vh" : "auto")};
+const ChamferButtonBg = styled.div<TransientButtonsInterface>`
+  width: ${({ $bgwidth }) => ($bgwidth ? $bgwidth + "vw" : "auto")};
+  height: ${({ $bgheight }) => ($bgheight ? $bgheight + "vh" : "auto")};
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${({ backgroundColor }) =>
-    backgroundColor || "rgb(0, 0, 0)"};
+  background-color: ${({ $backgroundcolor }) =>
+    $backgroundcolor || "rgb(0, 0, 0)"};
   z-index: 2;
   clip-path: polygon(
     3.89% 18.53%,
@@ -66,18 +79,18 @@ const ChamferButtonBg = styled.div<Omit<buttonsInterface, "children">>`
   );
 `;
 
-const ChamferButtonContent = styled.div<Omit<buttonsInterface, "children">>`
+const ChamferButtonContent = styled.div<TransientButtonsInterface>`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  width: ${({ contentWidth }) => (contentWidth ? contentWidth + "vw" : "auto")};
-  height: ${({ contentHeight }) =>
-    contentHeight ? contentHeight + "vh" : "auto"};
+  width: ${({ $contentwidth }) => ($contentwidth ? $contentwidth + "vw" : "auto")};
+  height: ${({ $contentheight }) =>
+    $contentheight ? $contentheight + "vh" : "auto"};
   display: flex;
   justify-content: center;
-  background-color: ${({ contentColor }) => contentColor || "rgb(0, 0, 0)"};
+  background-color: ${({ $contentcolor }) => $contentcolor || "rgb(0, 0, 0)"};
   align-items: center;
   clip-path: polygon(
     3.89% 18.53%,
