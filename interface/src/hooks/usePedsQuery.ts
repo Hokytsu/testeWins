@@ -6,7 +6,7 @@ export const usePedsQuery = () => {
   return useQuery<PedsType[]>({
     queryFn: Peds.getJsonDataAPI,
     queryKey: ['peds'],
-    staleTime: 120000, // 3 minutos
+    staleTime: 180000, // 3 minutos
     enabled:true,
     retry:3, 
   });

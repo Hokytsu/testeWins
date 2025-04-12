@@ -1,0 +1,3 @@
+GET https://winsapi.discloud.app/dev/products/weapons
+  accept: application/json
+  

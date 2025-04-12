@@ -2,10 +2,11 @@
 
 
 
-GET https://winsapi.discloud.app/dev/products/weapons
+GET https://winsapi.discloud.app/dev/products/peds
 Accept: application/json
 
 
 
-GET https://winsapi.discloud.app/dev/products
-Accept: application/json
+WEAEPI0014
+WEACOM0027
+WEALEG0007

@@ -1,5 +1,5 @@
-export function getImageUrl( // getImageUrl( 'peds' OU 'uniforms' OU 'weapons', NOME IMG);
-  type: "peds" | "uniforms" | "weapons",
+export function getImageUrl( 
+  type:string,
   imageName: string
 ):string {
   const baseUrl = "https://wins.company/assets/TesteFrontEnd";

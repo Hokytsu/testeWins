@@ -1,9 +1,14 @@
 import styled from "styled-components";
-
-export const LojaStyled = styled.header`
+export { LojaPage };
+ const LojaPage = styled.section`
   width: 100vw;
-  height: auto;
+  height: 529.26vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  background-color: #858585;// TODO: MUDAR FUTARAMENTE
+   
 `;
+
+

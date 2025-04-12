@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { TransientButtonsInterface } from "../../../../interface/Utils.Interface";
+import { TransientUtilsInterface } from "../../../../interface/Utils.Interface";
 export {
   ChamferButton,
   ChamferButtonBorder,
   ChamferButtonBg,
   ChamferButtonContent,
-  Img
+  Img,
 };
 
 /*Explicação: ChamferButton é o holder de tudo, o restante está centrado nele, o 
@@ -18,18 +18,16 @@ export {
    A config do clip-path: polygon{} é uma extração do svg do figma.
   */
 
-
 const Img = styled.img``;
-const ChamferButton = styled.div<TransientButtonsInterface>`
+const ChamferButton = styled.div<TransientUtilsInterface>`
   width: ${({ $width }) => ($width ? $width + "vw" : "auto")};
   height: ${({ $height }) => ($height ? $height + "vh" : "auto")};
   position: relative;
   background-color: transparent;
   cursor: pointer;
- 
 `;
 
-const ChamferButtonBorder = styled.div<TransientButtonsInterface>`
+const ChamferButtonBorder = styled.div<TransientUtilsInterface>`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -56,7 +54,7 @@ const ChamferButtonBorder = styled.div<TransientButtonsInterface>`
   );
 `;
 
-const ChamferButtonBg = styled.div<TransientButtonsInterface>`
+const ChamferButtonBg = styled.div<TransientUtilsInterface>`
   width: ${({ $bgwidth }) => ($bgwidth ? $bgwidth + "vw" : "auto")};
   height: ${({ $bgheight }) => ($bgheight ? $bgheight + "vh" : "auto")};
   position: absolute;
@@ -82,13 +80,14 @@ const ChamferButtonBg = styled.div<TransientButtonsInterface>`
   );
 `;
 
-const ChamferButtonContent = styled.div<TransientButtonsInterface>`
+const ChamferButtonContent = styled.div<TransientUtilsInterface>`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  width: ${({ $contentwidth }) => ($contentwidth ? $contentwidth + "vw" : "auto")};
+  width: ${({ $contentwidth }) =>
+    $contentwidth ? $contentwidth + "vw" : "auto"};
   height: ${({ $contentheight }) =>
     $contentheight ? $contentheight + "vh" : "auto"};
   display: flex;
@@ -109,6 +108,4 @@ const ChamferButtonContent = styled.div<TransientButtonsInterface>`
     0.24% 35.96%,
     3.89% 18.53%
   );
-
-  
 `;

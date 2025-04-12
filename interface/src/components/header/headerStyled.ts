@@ -14,8 +14,8 @@ export {
 //Header
 const HeaderContainer = styled.header`
   background: rgba(0, 9, 22, 1);
-  height: 8.63vh;
-  width: 100vw;
+  height: 9.63vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,8 +50,8 @@ const LogoLink = styled(Link)`
 `;
 const DividerLine = styled.div`
   width: 1.46vw;
-  height: 0vh;
-  border: 0.05vw solid rgba(255, 255, 255, 0.41);
+  height:  0.01vw;
+ background-color: rgba(255, 255, 255, 0.41);
   transform: rotate(90deg);
 `;
 const WinsPVP = styled.img`

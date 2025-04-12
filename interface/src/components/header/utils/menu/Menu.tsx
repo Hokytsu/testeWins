@@ -3,7 +3,7 @@ import { SetaAberto, SetaFechado, Carrinho } from "../../../../assets";
 import { useEffect, useState } from "react";
 const Menu = () => {
   const [hoveredElementId, setHoveredElementId] = useState<string | null>(null);
-  const [Badge, setBadge] = useState<number | null>(99); // TODO:  Fazer mock com mutate simulando a Api, ou descobrir se já temos esse valor na API
+  const [Badge, setBadge] = useState<number | null>(8); // TODO:  Fazer mock com mutate simulando a Api, ou descobrir se já temos esse valor na API
 
 
   function handleMouseHovered(id: string, type: string) {

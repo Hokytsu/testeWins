@@ -12,6 +12,7 @@
   axios (Consulta e interceptação de erros)
   react-query (Controle da consulta e gerencia de cache)
   styled-components (Estilização)
+  frame-motion (Animação)
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Comentário:

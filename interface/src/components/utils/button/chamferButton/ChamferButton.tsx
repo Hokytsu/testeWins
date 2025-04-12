@@ -1,10 +1,10 @@
 import { useState } from "react";
 import * as S from "./chamferButtonStyled";
-import { ButtonsInterface } from "../../../../interface/Utils.Interface";
+import { UtilsInterface } from "../../../../interface/Utils.Interface";
 
 import Frame from "./Frame 5416.svg"
 // Este botão não funciona para locais a onde precisa aparecer o background personalizado
-function ChamferButton({ ...props }: ButtonsInterface) {
+function ChamferButton({ ...props }: UtilsInterface) {
   const [isHoverButton, setIsHoverButton] = useState<boolean>(false);
   const [isClickButton, setIsClickButton] = useState<boolean>(false);
   const {

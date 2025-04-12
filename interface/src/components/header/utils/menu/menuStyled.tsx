@@ -26,11 +26,12 @@ const NavContainer = styled.nav`
 // ul
 const MenuUl = styled.ul`
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 35.31vw;
   height: 2.22vh;
-  gap: 1.64vw;
+  justify-content: start;
+  
+  gap: 1.57vw; 
 `;
 
 //li
@@ -41,6 +42,7 @@ const MenuLi = styled.li`
   width: auto;
   height: 2.22vh;
   position: relative;
+  gap: 0.16vw;
   
 `;
 
@@ -52,7 +54,7 @@ const IconNoLink = styled.img`
 `;
 const MenuNoLink = styled.h1`
   color: rgba(255, 255, 255, 0.7);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 0.83vw;
   line-height: 100%;
   letter-spacing: 0%;
@@ -68,7 +70,7 @@ const ArrowState = styled.img`
 
 // Badges Counter Shopping Cart Itens, vulgo Bolinha vermelha que mostra quantos itens tem no carrinho.
 const Badge = styled.span`
-  background: rgba(255, 26, 108, 1);
+  background: rgba(231, 51, 135, 1);
   width: 0.95vw; // Ajustado em 0,3px para comportar 99 itens, após isto precisa ser feito auste de layout.
   height: 1.69vh; // Ajustado em 0,3px para comportar 99 itens, após isto precisa ser feito auste de layout.
   display: flex;
@@ -78,17 +80,21 @@ const Badge = styled.span`
   /* position: relative;
   top: -21%;
   left: -0.36vw; */
-  position: absolute;
-  top: -0.23vh;
-  left: 0.85vw;
+  position: relative;
+  top: -0.4vh;
+  left: -0.5vw;
   cursor: pointer;
 `;
 
 const BadgeNumber = styled.h1`
   color: rgba(255, 255, 255, 1);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1.48vh;
   line-height: 100%;
+  position: absolute;
+  top: 49%;
+  left: 49%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
    
 `;

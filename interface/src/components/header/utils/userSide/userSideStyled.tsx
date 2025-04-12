@@ -28,7 +28,7 @@ const ContentButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.42vw;
+  gap: 0.62vw;
 `;
 
 const Exit = styled.h1`
@@ -48,8 +48,8 @@ const IconExit = styled.img`
 `;
 
 const IconGlobo = styled.img`
-  width: 1.04vw;
-  height: 1.85vh;
+  width: 1.25vw;
+  height: 2.22vh;
   cursor: pointer;
 `;
 const UserPlace = styled.div`
@@ -64,7 +64,7 @@ const UserPlace = styled.div`
 const PlaceAvatar = styled.div`
   width: 2.08vw;
   height: 3.7vh;
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: rgba(86, 142, 255, 1);
   border: 0.1vw solid rgba(86, 142, 255, 1);
 `;

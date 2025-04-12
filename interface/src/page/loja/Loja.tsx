@@ -1,11 +1,13 @@
-import Header from "../../components/header/Header";
-import { LojaStyled } from "./lojaStyled";
+import BoxItens from "../../components/utils/boxItem/BoxItens copy";
+import HeroSection from "../sections/heroSection/HeroSection";
+import * as S from "./lojaStyled";
 
 function Loja() {
   return (
-    <LojaStyled>
-      <Header />
-    </LojaStyled>
+    <S.LojaPage>
+      <HeroSection />
+      <BoxItens type="weapons" nameItem="Test Procution"  valueItem={20} img="WEAEPI0014" colection="Test Procution"/>
+    </S.LojaPage>
   );
 }
 

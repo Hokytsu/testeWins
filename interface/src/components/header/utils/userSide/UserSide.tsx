@@ -1,4 +1,4 @@
-import ChamferButton from "../../../lib/button/chamferButton/ChamferButton.tsx";
+import ChamferButton from "../../../utils/button/chamferButton/ChamferButton.tsx";
 import * as S from "./userSideStyled.tsx";
 import { Globo, Sair } from "../../../../assets/index.ts";
 import { get } from "lodash";
@@ -16,11 +16,11 @@ function UserSide() {
         height={4.44}
         contentwidth={11.35}
         contentheight={3.89}
-        bgheight={4.26}
-        bgwidth={11.56}
-        bordercolor="rgba(255, 26, 108, 1)"
+        bgheight={4.21}
+        bgwidth={11.54}
+        bordercolor="#e13283"
         backgroundcolor="rgba(0, 9, 22, 1)"
-        contentcolor="rgba(255, 26, 108, 1)"
+        contentcolor="#e13283"
         hovercolor="#b42356"
         clickcolor="#f3f3f3"
         action={handleClickLeave}
