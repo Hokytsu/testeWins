@@ -18,6 +18,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:5.16vw;
 `;
 //Logo styles
 const LogoSection = styled.section`

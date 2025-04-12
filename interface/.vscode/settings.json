@@ -1,19 +1,19 @@
 {
     "files.exclude": {
-      "**/.git": true,
-      "**/.DS_Store": true,
-      "**/node_modules": true,
-      "**/.next": true,
-      "**/dist": true,
-      "**/.cache": true,
-      "**/.vscode": false,
-      "**/package-lock.json": true,
-      "**/vite.config.ts": true,
-      "**/src/vite.env.d.ts": true,
-      "**/tsconfig.json": true,
-      "**/tsconfig.node.json": true,
-      "**/.gitignore": true,
-      "**/index.html": true,
+      // "**/.git": true,
+      // "**/.DS_Store": true,
+      // "**/node_modules": true,
+      // "**/.next": true,
+      // "**/dist": true,
+      // "**/.cache": true,
+      // "**/.vscode": false,
+      // "**/package-lock.json": true,
+      // "**/vite.config.ts": true,
+      // "**/src/vite.env.d.ts": true,
+      // "**/tsconfig.json": true,
+      // "**/tsconfig.node.json": true,
+      // "**/.gitignore": true,
+      // "**/index.html": true,
       
 
 

@@ -23,6 +23,8 @@
 
   STYLED: import * as S from "..." , Feito desta maneira para facilitar a importação de novos Styleds-Comps e tambem 
   para facilitar a identificação do que é Estilo e do que é component, já que S.NomeDoComp != NomeDoComp (Tanto para Comp e tanto para Assets)
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Map:
