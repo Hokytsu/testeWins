@@ -14,7 +14,7 @@ export const winsAPI: AxiosInstance = axios.create({
   },
 });
 
-// Interceptador de erros Default para REST APIs.
+// Interceptador de erros Default para REST APIs.  TODO: Melhorar o tratamento de erros para algo mais personalizado
 winsAPI.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error: AxiosError<ApiErrorResponseInterface>) => {

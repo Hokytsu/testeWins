@@ -2,6 +2,9 @@ import { useLayoutEffect, useState } from "react";
 import { UtilsInterface } from "../../../interface/Utils.Interface";
 import { getColorByClass } from "../../../utils/getClass";
 
+
+
+// Componente Hexagonal dos fundos, feito para ser reutilizado em todos cantos, sem a nescessidade de um svg para cada canto o8u algo semelhante.
 function HexagonBackground({ ...props }: UtilsInterface) {
   const { width, height, type, stroketop, trapezio } = props;
   const [typecolor, setTypecolor] = useState<string>("");

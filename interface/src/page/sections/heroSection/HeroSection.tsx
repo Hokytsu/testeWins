@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import BoxItens from "../../../components/utils/boxItem/BoxItens";
 import { useWeaponsQuery } from "../../../hooks/useWeaponsQuery";
 import { useEffect, useState } from "react";
-import {Animations} from './carrosel'
+import { Animations } from "./carrosel";
 
 function HeroSection() {
   const { data, isLoading, isError } = useWeaponsQuery();
@@ -33,12 +33,13 @@ function HeroSection() {
 
   return (
     <S.HeroSection>
+      {/* Detalhes, Bg, Gradient*/}
       <S.Details />
       <S.Gradient />
       <S.Background src={background} />
 
+      {/* Cabeçalho */}
       <S.ContainerContend>
-        {/* Cabeçalho */}
         <S.ContainerText>
           <S.SectionTitle>
             EXPLORE AS <br />
@@ -66,32 +67,32 @@ function HeroSection() {
               layout // Animação de layout para o container
               style={{
                 display: "flex",
-                gap: "0.41vw",
+                gap: "0.29vw",
                 position: "relative",
                 overflow: "visible",
-                padding: "0.5vw"
+                padding: "0.5vw",
               }}
             >
+              {/* armas */}
               {displayedWeapons.map((weapon, index) => (
-                <motion.div
+                <motion.div // Animação de layout para cada arma lógica incompleta por conta que é somente uma exemplicação
                   key={weapon.name}
-                layout
-                variants={Animations}
-                initial="initialPlace"
-                animate="animatePlace"
-                exit="exitPlace"
+                  layout
+                  variants={Animations}
+                  initial="initialPlace"
+                  animate="animatePlace"
+                  exit="exitPlace"
                   style={{
                     position: "relative",
-                    zIndex: displayedWeapons.length - index
+                    zIndex: displayedWeapons.length - index,
                   }}
                 >
                   <BoxItens
-                  key={weapon.name}
+                    key={weapon.name}
                     type="weapons"
                     nameItem={weapon.name}
                     valueItem={weapon.price}
                     img={weapon.images[0]}
-            
                   />
                 </motion.div>
               ))}

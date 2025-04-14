@@ -1,7 +1,7 @@
 import { UtilsInterface } from "../../../interface/Utils.Interface";
 
-function CyberDetails({ ...props }: UtilsInterface) {
-  const { type } = props;
+function CyberDetails({ ...props }: UtilsInterface) { // TODO: Fazer comportar filter e compactar code
+  const { type } = props; 
 
   return type === "left" ? (
     <svg

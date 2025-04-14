@@ -6,7 +6,7 @@ function RouterApp() {
   return (
     <RouterStyled>
       <Header/> {/*Em um site de vdd deixaria o Header sticky*/}
-      <Loja />
+      <Loja /> {/*Rotas retidadas afim de agilizar o desenvolvimento por conta do tempo*/}
     </RouterStyled>
   );
 }

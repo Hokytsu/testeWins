@@ -2,8 +2,9 @@ import { useState } from "react";
 import * as S from "./chamferButtonStyled";
 import { UtilsInterface } from "../../../../interface/Utils.Interface";
 
-import Frame from "./Frame 5416.svg";
 // Este botão não funciona para locais a onde precisa aparecer o background personalizado
+
+// Botão de cantos cortados, feito para ser reutilziado em todos cantos do site, quando nescessarios
 function ChamferButton({ ...props }: UtilsInterface) {
   const [isHoverButton, setIsHoverButton] = useState<boolean>(false);
   const [isClickButton, setIsClickButton] = useState<boolean>(false);
@@ -29,6 +30,7 @@ function ChamferButton({ ...props }: UtilsInterface) {
       action();
     }
   }
+
   return (
     <S.ChamferButton
       $width={width}
@@ -37,16 +39,19 @@ function ChamferButton({ ...props }: UtilsInterface) {
       onMouseEnter={() => setIsHoverButton(true)}
       onMouseLeave={() => setIsHoverButton(false)}
     >
+      {/*Borda externa*/}
       <S.ChamferButtonBorder
         $bordercolor={
           isHoverButton ? hovercolor : isClickButton ? clickcolor : bordercolor
         }
       />
+      {/*Background - Cor do fundo que vai ser posto o botão, além que o tamanho dele indica a expessura da borda*/}
       <S.ChamferButtonBg
         $bgheight={bgheight}
         $bgwidth={bgwidth}
         $backgroundcolor={backgroundcolor}
       />
+      {/*PArte interna do botão*/}
       <S.ChamferButtonContent
         $contentheight={contentheight}
         $contentwidth={contentwidth}
@@ -54,7 +59,7 @@ function ChamferButton({ ...props }: UtilsInterface) {
           isHoverButton ? hovercolor : isClickButton ? clickcolor : contentcolor
         }
       >
-        {children}
+        {children} {/*Conteudo dentro do botao*/}
       </S.ChamferButtonContent>
     </S.ChamferButton>
   );

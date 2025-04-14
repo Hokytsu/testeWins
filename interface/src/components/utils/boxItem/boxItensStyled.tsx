@@ -17,6 +17,10 @@ export {
   ImgContainer,
 };
 
+
+
+
+//----------------------------------Weapons
 const BoxWeapons = styled.div`
   min-height: 17.78vh;
   min-width: 9.17vw;
@@ -35,14 +39,14 @@ const BoxWeapons = styled.div`
   }
 `;
 
-const ImgContainer = styled.div<{ imgUrl: string }>`
+const ImgContainer = styled.div<{ $imgurl: string }>`
   position: absolute;
   overflow: hidden;
   top: 2.41vh;
   width: 7.92vw;
   height: 7.15vh;
   right: 50%;
-  background-image: url(${props => props.imgUrl});
+  background-image: url(${props => props.$imgurl});
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;// 

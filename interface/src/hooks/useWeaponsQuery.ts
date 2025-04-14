@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Weapons } from '../api/products/weapons';
 import {WeaponsType } from '../interface/Products-interface';
 
-export const useWeaponsQuery = () => {
+export const useWeaponsQuery = () => { // Cache Query da API
   return useQuery<WeaponsType[]>({
     queryFn: Weapons.getJsonDataAPI,
     queryKey: ['weapons'],

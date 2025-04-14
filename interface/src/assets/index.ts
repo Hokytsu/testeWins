@@ -1,6 +1,5 @@
 // Como é muito img criei um arquivo de exportação um nivel acima centralizando tudo.
 
-
 export { default as Carrinho } from './icons/Carrinho.svg';
 export { default as Logo } from './icons/LogoWins.svg';
 export { default as LogoPVP } from './icons/LogoWinsPVP.svg';
