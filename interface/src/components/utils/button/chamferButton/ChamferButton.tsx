@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as S from "./chamferButtonStyled";
 import { UtilsInterface } from "../../../../interface/Utils.Interface";
 
-import Frame from "./Frame 5416.svg"
+import Frame from "./Frame 5416.svg";
 // Este botão não funciona para locais a onde precisa aparecer o background personalizado
 function ChamferButton({ ...props }: UtilsInterface) {
   const [isHoverButton, setIsHoverButton] = useState<boolean>(false);
@@ -20,15 +20,14 @@ function ChamferButton({ ...props }: UtilsInterface) {
     contentcolor,
     hovercolor,
     clickcolor,
-    action
+    action,
   } = props;
 
   function handleClick() {
-      //Lógica click
+    //Lógica click
     if (action) {
       action();
     }
-  
   }
   return (
     <S.ChamferButton
@@ -38,7 +37,11 @@ function ChamferButton({ ...props }: UtilsInterface) {
       onMouseEnter={() => setIsHoverButton(true)}
       onMouseLeave={() => setIsHoverButton(false)}
     >
-      <S.ChamferButtonBorder $bordercolor={isHoverButton ? hovercolor : isClickButton ? clickcolor : bordercolor} />
+      <S.ChamferButtonBorder
+        $bordercolor={
+          isHoverButton ? hovercolor : isClickButton ? clickcolor : bordercolor
+        }
+      />
       <S.ChamferButtonBg
         $bgheight={bgheight}
         $bgwidth={bgwidth}
@@ -47,11 +50,12 @@ function ChamferButton({ ...props }: UtilsInterface) {
       <S.ChamferButtonContent
         $contentheight={contentheight}
         $contentwidth={contentwidth}
-        $contentcolor={isHoverButton ? hovercolor : isClickButton ? clickcolor : contentcolor}
+        $contentcolor={
+          isHoverButton ? hovercolor : isClickButton ? clickcolor : contentcolor
+        }
       >
         {children}
-        </S.ChamferButtonContent> 
-      
+      </S.ChamferButtonContent>
     </S.ChamferButton>
   );
 }

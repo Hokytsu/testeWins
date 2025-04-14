@@ -69,5 +69,4 @@ const PlaceAvatar = styled.div`
   border: 0.1vw solid rgba(86, 142, 255, 1);
 `;
 
-const AvatarUser = styled.img`
- `;
+const AvatarUser = styled.img``;

@@ -7,7 +7,7 @@ export const useWeaponsQuery = () => {
     queryFn: Weapons.getJsonDataAPI,
     queryKey: ['weapons'],
     staleTime: 180000,// 3 minutos
-    enabled:false,
+    enabled:true,
     retry:3, 
   });
 };

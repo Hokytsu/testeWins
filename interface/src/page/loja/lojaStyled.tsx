@@ -7,7 +7,7 @@ export { LojaPage };
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  background-color: #858585;// TODO: MUDAR FUTARAMENTE
+  background-color: #080d23;// TODO: MUDAR FUTARAMENTE
    
 `;
 

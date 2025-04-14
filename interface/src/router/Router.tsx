@@ -5,7 +5,7 @@ import { RouterStyled } from "./routerStyled.tsx";
 function RouterApp() {
   return (
     <RouterStyled>
-      <Header/>
+      <Header/> {/*Em um site de vdd deixaria o Header sticky*/}
       <Loja />
     </RouterStyled>
   );

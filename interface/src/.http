@@ -2,7 +2,7 @@
 
 
 
-GET https://winsapi.discloud.app/dev/products/peds
+GET https://winsapi.discloud.app/dev/products/weapons
 Accept: application/json
 
 
