@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as S from "./uniformSectionStyled";
 import  Uniforms  from "./utils/uniforms/Uniforms";
-import { blurOne, blurTwo, blurThree } from "../../../assets";
+import { blurOne, blurTwo, blurThree } from "../../../../assets";
 
 function UniformSection() {
   const [active, setActive] = useState<string>("uniformes");

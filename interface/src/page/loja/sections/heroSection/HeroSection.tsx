@@ -1,9 +1,9 @@
 import * as S from "./heroSectionStyled";
-import { background } from "../../../assets";
+import { background } from "../../../../assets";
 import CyberDetails from "../utils/CyberDetails";
 import { motion, AnimatePresence } from "framer-motion";
-import BoxItens from "../../../components/utils/boxItem/BoxItens";
-import { useWeaponsQuery } from "../../../hooks/useWeaponsQuery";
+import BoxItens from "../../../../components/utils/boxItem/BoxItens";
+import { useWeaponsQuery } from "../../../../hooks/useWeaponsQuery";
 import { useEffect, useState } from "react";
 import { Animations } from "./carrosel";
 

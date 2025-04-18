@@ -47,7 +47,7 @@ const ImgContainer = styled.div<{ $imgurl: string }>`
   background-image: url(${(props) => props.$imgurl});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; //
+  background-size: cover; 
 
   transform: translateX(50%);
 `;

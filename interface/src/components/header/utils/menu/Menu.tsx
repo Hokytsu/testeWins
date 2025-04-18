@@ -7,7 +7,7 @@ const Menu = () => {
 
 
   function handleMouseHovered(id: string, type: string) {
-    console.log(id, type);
+ 
     if (type === "enter") {
       setHoveredElementId(id);
     }

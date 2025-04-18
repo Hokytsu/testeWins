@@ -1,8 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import BoxItens from "../../../../../components/utils/boxItem/BoxItens";
+import BoxItens from "../../../../../../components/utils/boxItem/BoxItens";
 import * as S from "./uniformsStyled";
-import { useUniformsQuery } from "../../../../../hooks/useUniformsQuery";
-
+import { useUniformsQuery } from "../../../../../../hooks/useUniformsQuery";
 
 function Uniforms({ place }: { place: string }) {
   const { data, isLoading, isError } = useUniformsQuery();
@@ -11,15 +10,14 @@ function Uniforms({ place }: { place: string }) {
   const [displayed, setDisplayed] = useState<any[]>([]); //TODO:  TYPAR
   const [cache, setCache] = useState<any[]>([]); //TODO:  TYPAR
   const [filter, setFilter] = useState<any[]>([]); //TODO:  TYPAR
-console.log(cache)
+
   useEffect(() => {
     if (!data) return;
-    console.log(place);
+
     if (place === "uniformes") {
       setCache(data);
-  
     }
-  
+
     // else if (place==="caixas"){//SETAR DATA DAS CAIXAS
     //   setCache(dataBox);
     // }else if (place==="colecao"){//SETAR DATA DAS COLECOES
@@ -29,13 +27,13 @@ console.log(cache)
 
   useLayoutEffect(() => {
     if (place === "uniformes") {
-      setDisplayed(cache);//TODO: FAZER LOGICA DE FILTER 
+      setDisplayed(cache); //TODO: FAZER LOGICA DE FILTER
     } else if (place === "caixas") {
       setDisplayed([]); //SETAR DATA DAS CAIXAS
     } else if (place === "colecao") {
       setDisplayed([]); //SETAR DATA DAS COLECOES
     }
-  }, [place, filter,cache]);
+  }, [place, filter, cache]);
 
   if (isLoading) return; //img de loading
   if (isError) return; //img de error
@@ -63,4 +61,3 @@ console.log(cache)
 }
 
 export default Uniforms;
-

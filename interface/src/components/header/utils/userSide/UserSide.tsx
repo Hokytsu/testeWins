@@ -6,7 +6,7 @@ import { getImageUrl } from "../../../../utils/getImageUrl.ts";
 
 function UserSide() {
   function handleClickLeave() {
-    console.log("clicou");
+ 
     // Lógica do sair,
   }
   return (
