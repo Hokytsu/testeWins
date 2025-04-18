@@ -9,7 +9,7 @@ import { Animations } from "./carrosel";
 
 function HeroSection() {
   const { data, isLoading, isError } = useWeaponsQuery();
-  const [displayedWeapons, setDisplayedWeapons] = useState<any[]>([]);
+  const [displayedWeapons, setDisplayedWeapons] = useState<any[]>([]);//TODO: FAZER TYPAR
 
   useEffect(() => {
     if (!data) return;
@@ -28,8 +28,8 @@ function HeroSection() {
     return () => clearInterval(interval);
   }, [data]);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading weapons</div>;
+  if (isLoading) return //img de loading
+  if (isError) return //img de error
 
   return (
     <S.HeroSection>

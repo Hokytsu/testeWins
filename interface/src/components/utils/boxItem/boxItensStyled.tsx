@@ -5,7 +5,6 @@ export {
   BoxWeapons,
   BoxUniforms,
   ImgFeatureds,
-
   ImgUniforms,
   PointedName,
   PointedValue,
@@ -15,10 +14,9 @@ export {
   PointedContainer,
   Hex,
   ImgContainer,
+  HexUniforms,
+  InfosUniform
 };
-
-
-
 
 //----------------------------------Weapons
 const BoxWeapons = styled.div`
@@ -46,13 +44,12 @@ const ImgContainer = styled.div<{ $imgurl: string }>`
   width: 7.92vw;
   height: 7.15vh;
   right: 50%;
-  background-image: url(${props => props.$imgurl});
-    background-position: center;
+  background-image: url(${(props) => props.$imgurl});
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;// 
+  background-size: cover; //
 
   transform: translateX(50%);
-
 `;
 
 const InfosWeapons = styled.div`
@@ -70,8 +67,50 @@ const InfosWeapons = styled.div`
 `;
 
 //----------------------------------Uniforms
-const BoxUniforms = styled.div``;
-const ImgUniforms = styled.img``;
+const BoxUniforms = styled.div`
+  width: 12.5vw;
+  height: 29.26vh;
+  background-color: rgba(15, 27, 53, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+const ImgUniforms = styled.div<{ $imgurl: string }>`
+  position: absolute;
+  overflow: hidden;
+  top: 4.07vh;
+  width: 5.42vw;
+  height: 16.67vh;
+  right: 50%;
+  background-image: url(${(props) => props.$imgurl});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateX(50%);
+`;
+
+const HexUniforms = styled.img`
+  height: 22.26vh;
+  /* object-fit: cover; */
+  position: absolute;
+  top: -0.78vh;
+  right: 50%;
+  transform: translateX(50%);
+`;
+
+const InfosUniform = styled.div`
+  width: 12.5vw;
+  height: 7.04vh;
+  gap: 0.74vh;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1.11vh;
+`;
 
 //----------------------------------Featureds
 const BoxFeatureds = styled.div``;
@@ -125,8 +164,8 @@ const Name = styled.h1`
   font-weight: 400;
   font-size: 0.83vw;
   max-width: 90%;
-  white-space: nowrap;   
-  overflow: hidden;       
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
   line-height: 95%;
   letter-spacing: 0%;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as S from "./uniformSectionStyled";
 import  Uniforms  from "./utils/uniforms/Uniforms";
+import { blurOne, blurTwo, blurThree } from "../../../assets";
 
 function UniformSection() {
   const [active, setActive] = useState<string>("uniformes");
@@ -8,9 +9,12 @@ function UniformSection() {
   
   return (
     <S.UniformSection>
-      <S.Details />
+      <S.Details type="one" src={blurOne}/>
+      <S.Details type="two" src={blurTwo}/>
+      <S.Details  type="three" src={blurThree}/>
       <S.Gradient />
-      <S.NavBar>
+     <S.Container>
+     <S.NavBar>
         <S.DetailsLeft />
         <S.Li>
           <S.Option
@@ -38,7 +42,8 @@ function UniformSection() {
       </S.NavBar>
 
 
-      <Uniforms/>
+      <Uniforms place={active}/>
+     </S.Container>
     </S.UniformSection>
   );
 }

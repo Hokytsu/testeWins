@@ -1,5 +1,5 @@
 import HeroSection from "../sections/heroSection/HeroSection";
-import UniformSection from "../sections/uniformSection/UniformSection copy";
+import UniformSection from "../sections/uniformSection/UniformSection";
 import * as S from "./lojaStyled";
 
 function Loja() {

@@ -14,3 +14,6 @@ export { default as SetaFechado } from './utils/SetaFechado.svg';
 export { default as background } from './images/background.jpg';
 export { default as sideBackground } from './images/SideBackgroundDiscount.jpg'; 
 export { default as Classificacao } from './images/Classificacao.svg';
+export {default as blurOne} from './blur/blurOne.svg';
+export {default as blurTwo} from './blur/blurTwo.svg';
+export {default as blurThree} from './blur/blurThree.svg';

@@ -46,5 +46,9 @@ const Options = styled.div`
 const Uniforms = styled.div`
   width: 65vw;
   height: 90vh;
-  background-color: rebeccapurple;
+ 
+  display: grid;
+  grid-template-columns: repeat(5, 12.50vw);
+  grid-auto-rows: 29.26vh; 
+  gap:0.63vw;
 `;

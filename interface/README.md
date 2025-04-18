@@ -34,6 +34,8 @@
 
   OBJECTS: O correto seria criar SVGR para cada sgv ou poligono, afim de otimizar, foi criado o CHAMFERBUTTON E O HEXAGONO, entretando será utilados os SVGs brutos afim de agilizar a velocidade de code no teste, já que não a tanto tempo.
 
+  SECTION UNIFORMS: Não foi feito a resposividade caso a quantidade de item passe o limite, pois provalmente seria page slide, mas como tem pouco tempo  e o mock só tem 5 itens deixei tudo truncado. 
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Map:

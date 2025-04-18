@@ -6,6 +6,7 @@ import { use } from "framer-motion/client";
 import HexagonBackground from "../hexagonBackground/HexagonBackground";
 import { getClassSkin } from "../../../utils/getClass";
 import Hex from "../hexagonBackground/hex.svg";
+import HexUniforms from "../hexagonBackground/hexUniforms.svg";
 import { motion, Variants } from "framer-motion";
 
 function BoxItens({ ...props }: UtilsInterface) {
@@ -19,7 +20,6 @@ function BoxItens({ ...props }: UtilsInterface) {
     }
     if (nameItem) {
       setTypeClass(getClassSkin(nameItem));
-
     }
   }, []);
 
@@ -60,6 +60,7 @@ function BoxItens({ ...props }: UtilsInterface) {
 
       {/*Hexagono SVG só apra exemplificação*/}
       <S.Hex src={Hex} />
+      {/*TODO: Trocar pelo svgr*/}
 
       {/*Imagem arma*/}
       <S.ImgContainer $imgurl={imgUrl} />
@@ -74,22 +75,19 @@ function BoxItens({ ...props }: UtilsInterface) {
         </S.PointedContainer>
       </S.InfosWeapons>
     </S.BoxWeapons>
-  ) : 
-    (
+  ) : type === "uniforms" ? (
     <S.BoxUniforms>
-      <HexagonBackground
-        type={""}
-        width={0}
-        height={0}
-        trapezio={false}
-        stroketop={false}
-      />
-      <S.ImgUniforms src={imgUrl} />
-      <S.Name>{nameItem}</S.Name>
-      <S.PointedContainer>
-        <S.PointedValue>{valueItem}</S.PointedValue>
-      </S.PointedContainer>
+      {/*Hexagono SVG só apra exemplificação*/}
+      <S.HexUniforms src={HexUniforms} />
+      {/*TODO: Trocar pelo svgr*/}
+      <S.ImgUniforms $imgurl={imgUrl} />
+      <S.InfosUniform>
+        <S.Name>{nameItem}</S.Name>
+        <S.PointedContainer>
+          <S.PointedValue>{valueItem} Quantions</S.PointedValue>
+        </S.PointedContainer>
+      </S.InfosUniform>
     </S.BoxUniforms>
-  )
+  ) : null;
 }
 export default memo(BoxItens);
