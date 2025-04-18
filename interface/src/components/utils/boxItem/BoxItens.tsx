@@ -1,7 +1,7 @@
 import { UtilsInterface } from "../../../interface/Utils.Interface";
 import * as S from "./boxItensStyled";
 import { getImageUrl } from "../../../utils/getImageUrl";
-import { useLayoutEffect, useRef, useState } from "react";
+import { memo, useLayoutEffect, useRef, useState } from "react";
 import { use } from "framer-motion/client";
 import HexagonBackground from "../hexagonBackground/HexagonBackground";
 import { getClassSkin } from "../../../utils/getClass";
@@ -19,7 +19,7 @@ function BoxItens({ ...props }: UtilsInterface) {
     }
     if (nameItem) {
       setTypeClass(getClassSkin(nameItem));
-      console.log(typeClass);
+
     }
   }, []);
 
@@ -74,35 +74,22 @@ function BoxItens({ ...props }: UtilsInterface) {
         </S.PointedContainer>
       </S.InfosWeapons>
     </S.BoxWeapons>
-  ) : // Outras Box Reutilizaveis, mas como não foi usado ainda, vou deixar comentado.
-  // ) : type === "uniforms" ? (
-  //   <S.BoxUniforms>
-  //     <HexagonBackground
-  //       type={""}
-  //       width={0}
-  //       height={0}
-  //       trapezio={false}
-  //       stroketop={false}
-  //     />
-  //     <S.ImgUniforms src={imgUrl} />
-  //     <S.Name>{nameItem}</S.Name>
-  //     <S.PointedContainer>
-  //       <S.PointedValue>{valueItem}</S.PointedValue>
-  //     </S.PointedContainer>
-  //   </S.BoxUniforms>
-  // ) : type === "featureds" ? (
-  //   <S.BoxFeatureds>
-  //     <HexagonBackground
-  //       type={""}
-  //       width={0}
-  //       height={0}
-  //       trapezio={false}
-  //       stroketop={false}
-  //     />
-  //     <S.ImgFeatureds src={imgUrl} />
-  //     <S.Colection>{colection}</S.Colection>
-  //     <S.PointedName>{nameItem}</S.PointedName>
-  //   </S.BoxFeatureds>
-  null;
+  ) : 
+    (
+    <S.BoxUniforms>
+      <HexagonBackground
+        type={""}
+        width={0}
+        height={0}
+        trapezio={false}
+        stroketop={false}
+      />
+      <S.ImgUniforms src={imgUrl} />
+      <S.Name>{nameItem}</S.Name>
+      <S.PointedContainer>
+        <S.PointedValue>{valueItem}</S.PointedValue>
+      </S.PointedContainer>
+    </S.BoxUniforms>
+  )
 }
-export default BoxItens;
+export default memo(BoxItens);

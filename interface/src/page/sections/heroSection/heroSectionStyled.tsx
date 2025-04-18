@@ -92,7 +92,7 @@ const SectionSubTitle = styled.h2`
 // Details
 const Gradient = styled.div`
   width: 100vw;
-  height: 95.37vh;
+  height: 95.4vh;
   position: absolute;
   top: 0%;
   left: 0%;
