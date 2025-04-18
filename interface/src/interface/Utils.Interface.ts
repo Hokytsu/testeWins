@@ -20,7 +20,8 @@ export interface UtilsInterface {// TODO: Separar as interfaces de cada componen
   valueItem?:number;
   place?:string;
   colection?:string;
-  activeList?:string[];
+  activeList?:any[];
+  active?:number;
 }
 
 export interface TransientUtilsInterface { // Evita que seja jogado no Doom

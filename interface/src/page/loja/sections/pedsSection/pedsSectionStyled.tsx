@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 export {
   PadsSection,
   PadsContainer,
@@ -34,10 +34,85 @@ const Join = styled.h1`
   letter-spacing: 0%;
   text-align: center;
 `;
-const BasePads = styled.img``;
+const BasePads = styled.img`
+position: absolute;
+left: 50%;
+transform:  translateX(-50%);
+top:66.17vh;
+width: 24.17vw;
+height: 9.26vh;
+`;
 
-const Arrow = styled.img``;
-const Button = styled.div``;
+const Arrow = styled.img<{ side: "left" | "right" }>`
+ 
+width: 0.31vw;
+height: 1.02vh;
+
+
+  ${({ side }) => {
+    switch (side) {
+      case "left":
+        return css``;
+      case "right":
+        return css`
+          transform: rotate(180deg);
+        `;
+      default:
+        return css`
+          display: none;
+        `;
+    }
+  }}
+`;
+const Button = styled.div<{ side: "left" | "right" }>`
+position: absolute;
+z-index: 6;
+top: 28.89vh;
+  background: rgba(86, 142, 255, 1);
+  &:hover {
+    background: #4d73be;
+  }
+  width: 2.08vw;
+  height: 3.7vh;
+display: flex;
+justify-content: center;
+align-items: center;
+  ${({ side }) => {
+    switch (side) {
+      case "left":
+        return css`
+        left: 17.50vw;
+          clip-path: polygon(
+            0 22.5%,
+            10% 0%,
+            100% 0%,
+            100% 90%,
+            90% 100%,
+            0% 100%,
+            0% 22.5%
+          );
+        `;
+      case "right":
+        return css`
+        right: 17.50vw;
+          clip-path: polygon(
+            100% 22.5%,
+            90% 0%,
+            0% 0%,
+            0% 90%,
+            10% 100%,
+            100% 100%,
+            100% 22.5%
+          );
+        `;
+      default:
+        return css`
+          display: none;
+        `;
+    }
+  }}
+`;
+
 const Infos = styled.div`
   position: absolute;
   width: 22.5vw;

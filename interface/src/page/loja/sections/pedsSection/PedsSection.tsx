@@ -3,10 +3,12 @@ import ChamferButton from "../../../../components/utils/button/chamferButton/Cha
 import * as S from "./pedsSectionStyled";
 import Pads from "./utils/peds/Peds";
 import { usePedsQuery } from "../../../../hooks/usePedsQuery";
+import { ArrowButtons, Ground } from "../../../../assets";
+
 function PadsSection() {
   const { data, isLoading, isError } = usePedsQuery();
   const [displayed, setDisplayed] = useState<any[]>([]); //TODO: FAZER TYPAR
-  const [active, setActive] = useState<string[]>(["Padrão","Tuta","Loijke"]); //TODO: FAZER TYPAR
+  const [active, setActive] = useState<number>(1); //TODO: FAZER TYPAR
 
   useEffect(() => {
     if (!data) return;
@@ -19,18 +21,24 @@ function PadsSection() {
   function handleClickJoin() {
     //Lógica click
   }
+  function handleClick(side: string) {
+    const max = displayed.length - 1;
+    if (side === "left" && active > 0) {
+      setActive(active - 1);
+    } else if (side === "right" && active < max) {
+      setActive(active + 1);
+    } else if (side === "right" && active === max) {
+      setActive(0);
+    } else if (side === "left" && active === 0) {
+      setActive(max);
+    }
+  }
   return (
     <S.PadsSection>
       <S.PadsContainer>
         <S.Infos>
           <S.Title>PEDDINGS</S.Title>
-          <S.Description>
-            {displayed
-              .filter((ped) => active[1] === ped.name)
-              .map((ped) => (
-                <div key={ped.id}>{ped.description}</div>
-              ))}
-          </S.Description>
+          <S.Description> {displayed[active]?.description}</S.Description>
           {/*TODO: FAZER SHADOW BUTTON*/}
           <ChamferButton
             width={11.67}
@@ -52,13 +60,21 @@ function PadsSection() {
             }
           />
         </S.Infos>
+        <S.Button side="left" onClick={() => handleClick("left")}>
+          <S.Arrow src={ArrowButtons} side="left" />
+        </S.Button>
+        <S.BasePads src={Ground} />
+        <S.Button side="right" onClick={() => handleClick("right")}>
+          <S.Arrow src={ArrowButtons} side="right" />
+        </S.Button>
         {displayed.map((ped) => (
           <Pads
             key={ped.name}
             nameItem={ped.name}
             valueItem={ped.value}
             img={ped.images[0]}
-            activeList={active}
+            activeList={displayed}
+            active={active}
           />
         ))}
       </S.PadsContainer>
