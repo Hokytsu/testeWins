@@ -1,45 +1,78 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ChamferButton from "../../../../components/utils/button/chamferButton/ChamferButton";
 import * as S from "./pedsSectionStyled";
 import Pads from "./utils/peds/Peds";
 import { usePedsQuery } from "../../../../hooks/usePedsQuery";
 import { ArrowButtons, Ground } from "../../../../assets";
 
+import { useMemo } from "react";
 function PadsSection() {
   const { data, isLoading, isError } = usePedsQuery();
-  const [displayed, setDisplayed] = useState<any[]>([]); //TODO: FAZER TYPAR
-  const [active, setActive] = useState<number>(1); //TODO: FAZER TYPAR
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    if (!data) return;
-    setDisplayed(data);
-  }, [data]);
+  const displayedItems = useMemo(() => data || [], [data]);
 
-  if (isLoading) return; //img de loading
-  if (isError) return; //img de error
+  if (isLoading) return null;
+  if (isError) return null;
 
-  function handleClickJoin() {
-    //Lógica click
-  }
-  function handleClick(side: string) {
-    const max = displayed.length - 1;
-    if (side === "left" && active > 0) {
-      setActive(active - 1);
-    } else if (side === "right" && active < max) {
-      setActive(active + 1);
-    } else if (side === "right" && active === max) {
-      setActive(0);
-    } else if (side === "left" && active === 0) {
-      setActive(max);
+  const handleClickJoin = () => {
+    // Lógica click
+  };
+
+  const handleNavigation = (side: "left" | "right") => {
+    const maxIndex = displayedItems.length - 1;
+    setActiveIndex((prev) => {
+     if (side === "right") return prev === maxIndex ? 0 : prev + 1; 
+     if (side === "left") return prev === 0 ? maxIndex : prev - 1;
+      return prev;
+    });
+  };
+  const visibleItems = useMemo(() => {
+    if (!displayedItems.length || displayedItems.length < 3) {
+      return displayedItems.map((item) => ({
+        ...item,
+        position: "center",
+        visible: true,
+      }));
     }
-  }
+        const total = displayedItems.length;
+    return [
+      {
+        ...displayedItems[(activeIndex - 2 + total) % total],
+        position: "far-left" ,
+        visible: false,
+      },
+      {
+        ...displayedItems[(activeIndex - 1 + total) % total],
+        position: "left" ,
+        visible: true,
+      },
+      {
+        ...displayedItems[activeIndex],
+        position: "center" ,
+        visible: true,
+      },
+      {
+        ...displayedItems[(activeIndex + 1) % total],
+        position: "right" ,
+        visible: true,
+      },
+      {
+        ...displayedItems[(activeIndex + 2) % total],
+        position: "far-right" ,
+        visible: false,
+      },
+    ];
+  }, [displayedItems, activeIndex]);
+
   return (
     <S.PadsSection>
       <S.PadsContainer>
         <S.Infos>
           <S.Title>PEDDINGS</S.Title>
-          <S.Description> {displayed[active]?.description}</S.Description>
-          {/*TODO: FAZER SHADOW BUTTON*/}
+          <S.Description>
+            {displayedItems[activeIndex]?.description}
+          </S.Description>
           <ChamferButton
             width={11.67}
             height={4.44}
@@ -53,30 +86,36 @@ function PadsSection() {
             hovercolor="#3c7aad"
             clickcolor="#f3f3f3"
             action={handleClickJoin}
-            children={
-              <S.ContentButton>
-                <S.Join>Acessar Jogo</S.Join>
-              </S.ContentButton>
-            }
-          />
+          >
+            <S.ContentButton>
+              <S.Join>Acessar Jogo</S.Join>
+            </S.ContentButton>
+          </ChamferButton>
         </S.Infos>
-        <S.Button side="left" onClick={() => handleClick("left")}>
+
+        <S.Button side="left" onClick={() => handleNavigation("left")}>
           <S.Arrow src={ArrowButtons} side="left" />
         </S.Button>
+
         <S.BasePads src={Ground} />
-        <S.Button side="right" onClick={() => handleClick("right")}>
+
+        <S.Button side="right" onClick={() => handleNavigation("right")}>
           <S.Arrow src={ArrowButtons} side="right" />
         </S.Button>
-        {displayed.map((ped) => (
-          <Pads
-            key={ped.name}
-            nameItem={ped.name}
-            valueItem={ped.value}
-            img={ped.images[0]}
-            activeList={displayed}
-            active={active}
-          />
-        ))}
+
+        <S.CarouselWrapper>
+          {visibleItems.map((ped) => (
+            <Pads
+              key={ped.price}
+              nameItem={ped.name}
+              valueItem={ped.price}
+              img={ped.images[0]}
+              position={ped.position}
+              isActive={ped.position === "center"}
+              isVisible={ped.visible}
+            />
+          ))}
+        </S.CarouselWrapper>
       </S.PadsContainer>
     </S.PadsSection>
   );

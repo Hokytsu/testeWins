@@ -1,23 +1,30 @@
 import styled, { css } from "styled-components";
 export {
+  CarouselWrapper,
   PadsSection,
   PadsContainer,
+  Join,
   BasePads,
-  Arrow,
   Button,
+  ContentButton,
   Infos,
   Description,
   Title,
-  Details,
-  Join,
-  ContentButton,
+  Arrow,
 };
-const ContentButton = styled.div``;
+const CarouselWrapper = styled.div`
+  position: relative;
+  display: flex;
+  position: absolute;
+  top: 0vh;
+`;
+
 const PadsSection = styled.section`
   width: 100vw;
   height: 90.65vh;
   background: rgba(7, 13, 29, 1);
 `;
+
 const PadsContainer = styled.div`
   width: 100vw;
   position: relative;
@@ -26,6 +33,7 @@ const PadsContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const Join = styled.h1`
   color: rgba(255, 255, 255, 1);
   font-weight: 700;
@@ -34,54 +42,47 @@ const Join = styled.h1`
   letter-spacing: 0%;
   text-align: center;
 `;
+
 const BasePads = styled.img`
-position: absolute;
-left: 50%;
-transform:  translateX(-50%);
-top:66.17vh;
-width: 24.17vw;
-height: 9.26vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 66.17vh;
+  width: 24.17vw;
+  height: 9.26vh;
 `;
 
 const Arrow = styled.img<{ side: "left" | "right" }>`
- 
-width: 0.31vw;
-height: 1.02vh;
+  width: 0.31vw;
+  height: 1.02vh;
 
-
-  ${({ side }) => {
-    switch (side) {
-      case "left":
-        return css``;
-      case "right":
-        return css`
-          transform: rotate(180deg);
-        `;
-      default:
-        return css`
-          display: none;
-        `;
-    }
-  }}
+  ${({ side }) =>
+    side === "right" &&
+    css`
+      transform: rotate(180deg);
+    `}
 `;
+
 const Button = styled.div<{ side: "left" | "right" }>`
-position: absolute;
-z-index: 6;
-top: 28.89vh;
+  position: absolute;
+  z-index: 6;
+  top: 28.89vh;
   background: rgba(86, 142, 255, 1);
   &:hover {
     background: #4d73be;
   }
   width: 2.08vw;
   height: 3.7vh;
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
   ${({ side }) => {
     switch (side) {
       case "left":
         return css`
-        left: 17.50vw;
+          left: 17.5vw;
           clip-path: polygon(
             0 22.5%,
             10% 0%,
@@ -94,7 +95,7 @@ align-items: center;
         `;
       case "right":
         return css`
-        right: 17.50vw;
+          right: 17.5vw;
           clip-path: polygon(
             100% 22.5%,
             90% 0%,
@@ -104,10 +105,6 @@ align-items: center;
             100% 100%,
             100% 22.5%
           );
-        `;
-      default:
-        return css`
-          display: none;
         `;
     }
   }}
@@ -122,13 +119,14 @@ const Infos = styled.div`
 `;
 
 const Description = styled.h3`
-  color: rgba(255, 255, 255, 1); /*FAZER ...*/
+  color: rgba(255, 255, 255, 1);
   font-weight: 400;
   font-size: 0.83vw;
   line-height: 100%;
   letter-spacing: 0%;
   margin-bottom: 2.96vh;
 `;
+
 const Title = styled.h1`
   color: rgba(255, 255, 255, 1);
   font-weight: 700;
@@ -139,4 +137,4 @@ const Title = styled.h1`
   margin-bottom: 1.48vh;
 `;
 
-const Details = styled.div<{ blur: string }>``;
+const ContentButton = styled.div``;

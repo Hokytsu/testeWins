@@ -1,18 +1,84 @@
-import styled from "styled-components";
-export { Value, Name, Pads, Container, Infos };
+import styled, { css } from "styled-components";
+export { Container, Value, Name, Pads, Infos };
 
-const Container = styled.div`
+const Container = styled.div<{ $position: string; $isVisible: boolean }>`
   flex-direction: column;
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 20.31vw;
+  width: 100%;
   gap: 5.19vh;
   height: 61.39vh;
-  position: relative;
+  cursor: pointer;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  transform-origin: center center;
+  
+  
+
+
+
+  ${({ $position }) => {
+    switch ($position) {
+      case "left":
+        return css`
+          left: -19vw;
+          top: 20vh;
+          transform: scale(0.9);
+        `;
+      case "center":
+        return css`
+          left: 0;
+          transform: scale(1);
+        `;
+      case "far-right":
+        return css`
+          left: 25vw;
+          display: none;
+          transform: scale(0.1);
+          opacity: 0;
+        `;
+      case "far-left":
+        return css`
+          left: -25vw;
+          opacity: 0;
+          display: none;
+          transform: scale(0.1);
+        `;
+      case "right":
+        return css`
+          left: 19vw;
+          top: 20vh;
+          transform: scale(0.9);
+          
+        `;
+      default:
+        return css`
+          left: 0; 
+        `;
+    }
+  }};
+  transition: 
+    opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    left 700ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+
 `;
-const Value = styled.div<{ hiddenStyle: boolean }>`
-  ${(props) => props.hiddenStyle && `display: none;`}
+
+const Pads = styled.div<{ $imgurl: string; $isActive: boolean }>`
+  position: relative;
+  width: ${({ $isActive }) => ($isActive ? "20.31vw" : "16vw")};
+  height: ${({ $isActive }) => ($isActive ? "52.04vh" : "42vh")};
+  background-image: url(${(props) => props.$imgurl});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: ${({ $isActive }) => ($isActive ? "none" : "blur(1.17vw)")};
+  margin-top: ${({ $isActive }) => ($isActive ? "0" : "3vh")};
+  transition: all 0.9s ease;
+`;
+const Value = styled.div`
   background: rgba(86, 142, 255, 1);
   width: 8.85vw;
   height: 2.96vh;
@@ -32,7 +98,10 @@ const Value = styled.div<{ hiddenStyle: boolean }>`
   letter-spacing: 0%;
   text-align: center;
   vertical-align: middle;
+  opacity: 1;
+  transition: all 0.1s ease;
 `;
+
 const Infos = styled.div`
   width: 10vw;
   height: 5.93vh;
@@ -42,8 +111,7 @@ const Infos = styled.div`
   align-items: center;
 `;
 
-const Name = styled.h2<{ hiddenStyle: boolean }>`
-  ${(props) => props.hiddenStyle && `display: none;`}
+const Name = styled.h2`
   color: rgba(255, 255, 255, 1);
   font-weight: 400;
   font-size: 0.83vw;
@@ -51,25 +119,6 @@ const Name = styled.h2<{ hiddenStyle: boolean }>`
   letter-spacing: 0%;
   text-align: center;
   vertical-align: middle;
-`;
-const Pads = styled.div<{ $imgurl: string | undefined; hiddenStyle: boolean }>`
-  position: absolute;
-  right: 50%;
-  top: 17.78vh;
-  width: 20.31vw;
-  height: 52.04vh;
-  ${(props) =>
-    props.hiddenStyle &&
-    `filter:blur(1.17vw);
-width: 14.54vw;
-height: 42.79vh;
-top: 21.15vh;`};
-
-  overflow: hidden;
-
-  background-image: url(${(props) => props.$imgurl});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transform: translateX(50%);
+  opacity: 1;
+  transition: all 0.1s ease;
 `;
