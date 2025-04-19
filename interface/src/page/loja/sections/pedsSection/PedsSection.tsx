@@ -1,17 +1,59 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import ChamferButton from "../../../../components/utils/button/chamferButton/ChamferButton";
 import * as S from "./pedsSectionStyled";
 import Pads from "./utils/peds/Peds";
 import { usePedsQuery } from "../../../../hooks/usePedsQuery";
 import { ArrowButtons, Ground } from "../../../../assets";
 
-import { useMemo } from "react";
 function PadsSection() {
   const { data, isLoading, isError } = usePedsQuery();
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Always calculate displayedItems, don't conditionally return before this
   const displayedItems = useMemo(() => data || [], [data]);
 
+  const visibleItems = useMemo(() => {
+    if (!displayedItems.length) return [];
+    
+    if (displayedItems.length < 3) {
+      return displayedItems.map((item) => ({
+        ...item,
+        position: "center",
+        visible: true,
+      }));
+    }
+
+    const total = displayedItems.length;
+    return [
+      {
+        ...displayedItems[(activeIndex - 2 + total) % total],
+        position: "far-left" as const,
+        visible: false,
+      },
+      {
+        ...displayedItems[(activeIndex - 1 + total) % total],
+        position: "left" as const,
+        visible: true,
+      },
+      {
+        ...displayedItems[activeIndex],
+        position: "center" as const,
+        visible: true,
+      },
+      {
+        ...displayedItems[(activeIndex + 1) % total],
+        position: "right" as const,
+        visible: true,
+      },
+      {
+        ...displayedItems[(activeIndex + 2) % total],
+        position: "far-right" as const,
+        visible: false,
+      },
+    ];
+  }, [displayedItems, activeIndex]);
+
+  // Now we can do conditional returns after all hooks have been called
   if (isLoading) return null;
   if (isError) return null;
 
@@ -22,48 +64,11 @@ function PadsSection() {
   const handleNavigation = (side: "left" | "right") => {
     const maxIndex = displayedItems.length - 1;
     setActiveIndex((prev) => {
-     if (side === "right") return prev === maxIndex ? 0 : prev + 1; 
-     if (side === "left") return prev === 0 ? maxIndex : prev - 1;
+      if (side === "right") return prev === maxIndex ? 0 : prev + 1;
+      if (side === "left") return prev === 0 ? maxIndex : prev - 1;
       return prev;
     });
   };
-  const visibleItems = useMemo(() => {
-    if (!displayedItems.length || displayedItems.length < 3) {
-      return displayedItems.map((item) => ({
-        ...item,
-        position: "center",
-        visible: true,
-      }));
-    }
-        const total = displayedItems.length;
-    return [
-      {
-        ...displayedItems[(activeIndex - 2 + total) % total],
-        position: "far-left" ,
-        visible: false,
-      },
-      {
-        ...displayedItems[(activeIndex - 1 + total) % total],
-        position: "left" ,
-        visible: true,
-      },
-      {
-        ...displayedItems[activeIndex],
-        position: "center" ,
-        visible: true,
-      },
-      {
-        ...displayedItems[(activeIndex + 1) % total],
-        position: "right" ,
-        visible: true,
-      },
-      {
-        ...displayedItems[(activeIndex + 2) % total],
-        position: "far-right" ,
-        visible: false,
-      },
-    ];
-  }, [displayedItems, activeIndex]);
 
   return (
     <S.PadsSection>
