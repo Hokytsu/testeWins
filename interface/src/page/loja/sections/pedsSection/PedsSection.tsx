@@ -9,12 +9,11 @@ function PadsSection() {
   const { data, isLoading, isError } = usePedsQuery();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Always calculate displayedItems, don't conditionally return before this
   const displayedItems = useMemo(() => data || [], [data]);
 
   const visibleItems = useMemo(() => {
     if (!displayedItems.length) return [];
-    
+
     if (displayedItems.length < 3) {
       return displayedItems.map((item) => ({
         ...item,
@@ -53,7 +52,6 @@ function PadsSection() {
     ];
   }, [displayedItems, activeIndex]);
 
-  // Now we can do conditional returns after all hooks have been called
   if (isLoading) return null;
   if (isError) return null;
 
